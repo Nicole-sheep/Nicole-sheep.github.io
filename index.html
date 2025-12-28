@@ -99,7 +99,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/12/28/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84C%E7%AC%94%E8%AE%B0/" data-id="cuidv7JO6T5fVkljqpBhlcjTR" data-title="乱七八糟的C笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/12/28/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84C%E7%AC%94%E8%AE%B0/" data-id="cuidluzYNde_BWnzeEr7unu43" data-title="乱七八糟的C笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -147,42 +147,42 @@
 <tr>
 <td style="text-align:center">int</td>
 <td style="text-align:center">4</td>
-<td style="text-align:center">-2^31^~(2^31^-1)</td>
+<td style="text-align:center">-2<sup>31</sup>~(2<sup>31</sup>-1)</td>
 </tr>
 <tr>
 <td style="text-align:center">unsigned int</td>
 <td style="text-align:center">4</td>
-<td style="text-align:center">0~(2^32^-1)</td>
+<td style="text-align:center">0~(2<sup>32</sup>-1)</td>
 </tr>
 <tr>
 <td style="text-align:center">short</td>
 <td style="text-align:center">2</td>
-<td style="text-align:center">-2^15^~(2^15^-1)</td>
+<td style="text-align:center">-2<sup>15</sup>~(2<sup>15</sup>-1)</td>
 </tr>
 <tr>
 <td style="text-align:center">unsigned short</td>
 <td style="text-align:center">2</td>
-<td style="text-align:center">0~(2^16^-1)</td>
+<td style="text-align:center">0~(2<sup>16</sup>-1)</td>
 </tr>
 <tr>
 <td style="text-align:center">long</td>
 <td style="text-align:center">4</td>
-<td style="text-align:center">-2^31^~(2^31^-1)</td>
+<td style="text-align:center">-2<sup>31</sup>~(2<sup>31</sup>-1)</td>
 </tr>
 <tr>
 <td style="text-align:center">unsigned long</td>
 <td style="text-align:center">4</td>
-<td style="text-align:center">0~(2^32^-1)</td>
+<td style="text-align:center">0~(2<sup>32</sup>-1)</td>
 </tr>
 <tr>
 <td style="text-align:center">long long</td>
 <td style="text-align:center">8</td>
-<td style="text-align:center">-2^63^~(2^63^-1)</td>
+<td style="text-align:center">-2<sup>63</sup>~(2<sup>63</sup>-1)</td>
 </tr>
 <tr>
 <td style="text-align:center">unsigned long long</td>
 <td style="text-align:center">8</td>
-<td style="text-align:center">0~(2^64^-1)</td>
+<td style="text-align:center">0~(2<sup>64</sup>-1)</td>
 </tr>
 </tbody>
 </table>
@@ -199,12 +199,12 @@
 <tr>
 <td style="text-align:center">char</td>
 <td style="text-align:center">1</td>
-<td style="text-align:center">-2^7^~(2^7^-1)</td>
+<td style="text-align:center">-2<sup>7</sup>~(2<sup>7</sup>-1)</td>
 </tr>
 <tr>
 <td style="text-align:center">unsigned char</td>
 <td style="text-align:center">1</td>
-<td style="text-align:center">0~(2^8^-1)</td>
+<td style="text-align:center">0~(2<sup>8</sup>-1)</td>
 </tr>
 </tbody>
 </table>
@@ -224,52 +224,52 @@
 <td style="text-align:center">float</td>
 <td style="text-align:center">4</td>
 <td style="text-align:center">6</td>
-<td style="text-align:center">0,1.2×10^-38^~3.4×10^38^</td>
+<td style="text-align:center">0,1.2×10<sup>-38</sup>~3.4×10<sup>38</sup></td>
 </tr>
 <tr>
 <td style="text-align:center">double</td>
 <td style="text-align:center">8</td>
 <td style="text-align:center">15</td>
-<td style="text-align:center">0,2.3×10^-308^~1.7×10^308^</td>
+<td style="text-align:center">0,2.3×10<sup>-308</sup>~1.7×10<sup>308</sup></td>
 </tr>
 <tr>
 <td style="text-align:center">long double(Visual C++)</td>
 <td style="text-align:center">8</td>
 <td style="text-align:center">15</td>
-<td style="text-align:center">0,2.3×10^-308^~1.7×10^308^</td>
+<td style="text-align:center">0,2.3×10<sup>-308</sup>~1.7×10<sup>308</sup></td>
 </tr>
 <tr>
 <td style="text-align:center">long double(Turbo C)</td>
 <td style="text-align:center">8</td>
 <td style="text-align:center">19</td>
-<td style="text-align:center">0,3.4×10^-4932^~1.1×10^4932^</td>
+<td style="text-align:center">0,3.4×10<sup>-4932</sup>~1.1×10<sup>4932</sup></td>
 </tr>
 </tbody>
 </table>
 <hr>
 <p>:pushpin:在整数末尾加上大写字母L或小写字母l，表示它是长整型（long int），实型常量后加则指定该常量为long double型。</p>
-<p>:bulb:两个==整数相除==时，为使结果更精确，可在开头×1.0产生==浮点型结果==。</p>
+<p>:bulb:两个‘整数相除‘时，为使结果更精确，可在开头×1.0产生‘浮点型结果‘。</p>
 <h1>运算符和表达式</h1>
 <h2 id="一、C运算符">一、C运算符</h2>
 <ul>
 <li>
-<p>==除法运算==时，两个实数相除的结果是双精度实数，两个整数相除的结果是整数。（若除数与被除数均为正值或负值，则舍去小数部分；若有一个为负值，则取舍不定。大多编译器，如Visual C++，采取“向零取整”。</p>
+<p>‘除法运算‘时，两个实数相除的结果是双精度实数，两个整数相除的结果是整数。（若除数与被除数均为正值或负值，则舍去小数部分；若有一个为负值，则取舍不定。大多编译器，如Visual C++，采取“向零取整”。</p>
 </li>
 <li>
-<p>==取余运算==要求操作数为整数，结果也为整数。</p>
+<p>‘取余运算‘要求操作数为整数，结果也为整数。</p>
 </li>
 <li>
-<p>==结合性==：算术运算符自左向右，赋值运算符自右向左。</p>
+<p>‘结合性‘：算术运算符自左向右，赋值运算符自右向左。</p>
 </li>
 <li>
-<p>==强制类型转换==运算符：一般形式为 （类型名）（表达式）或（类型名）a（变量a）</p>
+<p>‘强制类型转换‘运算符：一般形式为 （类型名）（表达式）或（类型名）a（变量a）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a,c;</span><br><span class="line">    <span class="type">double</span> b;</span><br><span class="line">    a=<span class="number">10</span>;b=<span class="number">11.5</span>;</span><br><span class="line">    c=(<span class="type">int</span>)(a+b);</span><br><span class="line">    cout&lt;&lt;c&lt;&lt;(<span class="type">int</span>)b;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>:pencil:应用：如%运算要求两边均为整型，若x为float型，则x%3不合法，可改为（int）x%3完成运算。</p>
 </li>
 </ul>
 <h2 id="二、格式字符">二、格式字符</h2>
 <ul>
-<li><em>d格式符</em>  用来输出一个有符号的的十进制==整数==（%d）</li>
+<li><em>d格式符</em>  用来输出一个有符号的的十进制‘整数‘（%d）</li>
 </ul>
 <p>​       若输出long（长整型）数据，则使用%ld；若输出long long（双长整型）数据，则用%lld。</p>
 <p>​      ​ :star2:  %5d %05d %-5d %.5d区别</p>
@@ -279,36 +279,37 @@
 <p>​         %.5是指输出时至少宽度为5，若长度不够则在前面用“0”补齐。</p>
 <ul>
 <li>
-<p><em>c格式符</em>  用来输出一个==字符==（%c）</p>
+<p><em>c格式符</em>  用来输出一个‘字符‘（%c）</p>
 </li>
 <li>
-<p><em>s格式符</em>  用来输出一个==字符串==（%s）</p>
+<p><em>s格式符</em>  用来输出一个‘字符串‘（%s）</p>
 </li>
 <li>
-<p><em>f格式符</em>  用来输出==实数==（包括单、双精度、长双精度），以小数形式输出。</p>
+<p><em>f格式符</em>  用来输出‘实数‘（包括单、双精度、长双精度），以小数形式输出。</p>
 <p>:star2: 用法</p>
 <p>%f输出实数为单精度浮点数，只能得到6位小数。</p>
 <p>%lf输出实数则为双精度浮点数。</p>
 <p>%<a target="_blank" rel="noopener" href="http://m.nf">m.nf</a>：与d格式符类似，m为宽度，n则表示该实数含有多少位小数。</p>
 </li>
 <li>
-<p><em>e格式符</em>   指定数据以==指数形式==输出实数，若无特定说明，则默认该实数小数部分为6位，指数部分占5列（如e+002）</p>
+<p><em>e格式符</em>   指定数据以‘指数形式‘输出实数，若无特定说明，则默认该实数小数部分为6位，指数部分占5列（如e+002）</p>
 </li>
 </ul>
-<p>#特殊的输入输出函数</p>
+<h1>特殊的输入输出函数</h1>
 <h2 id="一、字符的输入输出函数">一、字符的输入输出函数</h2>
 <p><strong>输入</strong></p>
 <p>getchar函数，其一般形式如下：</p>
-<p>getchar（）</p>
+<p><code>getchar（）</code></p>
 <p><strong>输出</strong></p>
 <p>putchar函数，其一般形式如下：</p>
-<p>putchar（c）（c可以是字符常量、整型常量、字符变量或整型变量）</p>
+<p><code>putchar（c）</code></p>
+<p>参数说明：c可以是字符常量、整型常量、字符变量或整型变量。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> a,b,c;</span><br><span class="line">    a=getchar();</span><br><span class="line">    b=getchar();</span><br><span class="line">    c=getchar();</span><br><span class="line">    <span class="built_in">putchar</span>(a);</span><br><span class="line">    <span class="built_in">putchar</span>(b);</span><br><span class="line">    <span class="built_in">putchar</span>(c);</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/12/26/%E9%A1%BA%E5%BA%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" data-id="cuidlDXSxT2rtTO8bF_OqooNK" data-title="顺序程序设计" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/12/26/%E9%A1%BA%E5%BA%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" data-id="cuid1vrvm9ppXvYNvWGmlrcZf" data-title="顺序程序设计" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -360,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/12/21/hello-world/" data-id="cuidGml01lv215y9gzpaUUK0M" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/12/21/hello-world/" data-id="cuidQCf3kOiWuAI2hr_sr1RZG" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
