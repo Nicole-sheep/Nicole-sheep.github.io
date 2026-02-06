@@ -110,7 +110,53 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/06/hello-world/" data-id="cuidvNA1yZRXOTGklEgagjlg9" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/06/hello-world/" data-id="cuid4KutwLDtz9I3Ckbb64zJi" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/12/28/%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2025-12-28T06:44:40.000Z" itemprop="datePublished">2025-12-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/12/28/%E7%AC%94%E8%AE%B0/">笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>return 0表示函数正常终止。</p>
+<p>以下内容可运用return 0进行简化</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">13</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        b[i]=(<span class="number">300</span>+b[i<span class="number">-1</span>]-a[i])%<span class="number">100</span>;</span><br><span class="line">        m+=(<span class="number">300</span>-a[i]+b[i<span class="number">-1</span>])/<span class="number">100</span>*<span class="number">100</span>;</span><br><span class="line">        <span class="keyword">if</span>(b[i]&lt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cout&lt;&lt;-i;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">if</span>(b[<span class="number">1</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">2</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">3</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">4</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">5</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">6</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">7</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">8</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">9</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">10</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">11</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">12</span>]&gt;=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        m=m*<span class="number">1.2</span>+b[<span class="number">12</span>];</span><br><span class="line">        cout&lt;&lt;m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>简化后为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">13</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        b[i]=(<span class="number">300</span>+b[i<span class="number">-1</span>]-a[i])%<span class="number">100</span>;</span><br><span class="line">        m+=(<span class="number">300</span>-a[i]+b[i<span class="number">-1</span>])/<span class="number">100</span>*<span class="number">100</span>;</span><br><span class="line">        <span class="keyword">if</span>(b[i]&lt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cout&lt;&lt;-i;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        m=m*<span class="number">1.2</span>+b[<span class="number">12</span>];</span><br><span class="line">        cout&lt;&lt;m;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/12/28/%E7%AC%94%E8%AE%B0/" data-id="cuidUFE4rL7yUEjd13Y944x9u" data-title="笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -148,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/12/28/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84C%E7%AC%94%E8%AE%B0/" data-id="cuidXPILaJMrpHAaWAptfAXmq" data-title="乱七八糟的C笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/12/28/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84C%E7%AC%94%E8%AE%B0/" data-id="cuidAjsz4JkjlqO4z-GgPExWV" data-title="乱七八糟的C笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -336,7 +382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/12/26/%E9%A1%BA%E5%BA%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" data-id="cuidJOcFnkey4oZhww2GxwKPR" data-title="顺序程序设计" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/12/26/%E9%A1%BA%E5%BA%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" data-id="cuidX12L0DP5Yja3ZMy5BdGwy" data-title="顺序程序设计" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -380,6 +426,10 @@
         
           <li>
             <a href="/2026/02/06/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/28/%E7%AC%94%E8%AE%B0/">笔记</a>
           </li>
         
           <li>
