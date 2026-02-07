@@ -1,461 +1,180 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Hexo",
+  "alternateName": [
+    "example.com"
+  ],
+  "url": "http://example.com/"
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
-<meta name="generator" content="Hexo 8.1.1">
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+</head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">Hexo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/02/06/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-02-06T00:52:33.279Z" title="Created 2026-02-06 08:52:33">2026-02-06</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post"  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/12/28/%E7%AC%94%E8%AE%B0/" title="笔记">笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-28T06:44:40.000Z" title="Created 2025-12-28 14:44:40">2025-12-28</time></span></div><div class="content"> return 0表示函数正常终止。 以下内容可运用return 0进行简化 12345678910111213141516for(int i=1;i&lt;13;i++)    {        cin&gt;&gt;a[i];        b[i]=(300+b[i-1]-a[i])%100;        m+=(300-a[i]+b[i-1])/100*100;        if(b[i]&lt;0)        {            cout&lt;&lt;-i;            break;        }    } if(b[1]&gt;=0&amp;&amp;b[2]&gt;=0&amp;&amp;b[3]&gt;=0&amp;&amp;b[4]&gt;=0&amp;&amp;b[5]&gt;=0&amp;&amp;b[6]&gt;=0&amp;&amp;b[7]&gt;=0&amp;&amp;b[8]&gt;=0&amp;&amp;b[9]&gt;=0&amp;&amp;b[10]&gt;=0&amp;&amp;b[11]&gt;=0&amp;...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/12/26/%E9%A1%BA%E5%BA%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" title="顺序程序设计">顺序程序设计</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-26T12:02:56.000Z" title="Created 2025-12-26 20:02:56">2025-12-26</time></span></div><div class="content">数据类型一、整型数据   类型 字节数 取值范围    int 4 -231~(231-1)   unsigned int 4 0~(232-1)   short 2 -215~(215-1)   unsigned short 2 0~(216-1)   long 4 -231~(231-1)   unsigned long 4 0~(232-1)   long long 8 -263~(263-1)   unsigned long long 8 0~(264-1)   二、字符数据   类型 字节数 取值范围    char 1 -27~(27-1)   unsigned char 1 0~(28-1)   🐾Tips：虽然有符号字符型变量取值为-128– 127，但字符的代码不可能为负值，所以在存储字符时实际只用到0–127这部分，其第一位为0。 三、浮点型数据   类型 字节数 有效数字 取值范围    float 4 6 0,1.2×10-38~3.4×1038   double 8 15 0,2.3×10-308~1.7×10308   long double(Vis...</div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/02/06/hello-world/" title="Hello World">Hello World</a><time datetime="2026-02-06T00:52:33.279Z" title="Created 2026-02-06 08:52:33">2026-02-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/28/%E7%AC%94%E8%AE%B0/" title="笔记">笔记</a><time datetime="2025-12-28T06:44:40.000Z" title="Created 2025-12-28 14:44:40">2025-12-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/26/%E9%A1%BA%E5%BA%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" title="顺序程序设计">顺序程序设计</a><time datetime="2025-12-26T12:02:56.000Z" title="Created 2025-12-26 20:02:56">2025-12-26</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
       
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/06/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2026-02-06T00:52:33.279Z" itemprop="datePublished">2026-02-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/06/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+    <ul class="card-archive-list">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/02/">
+            <span class="card-archive-list-date">
+              February 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/06/hello-world/" data-id="cuidVmQhPWnXRYsyh2yHBhhqD" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              December 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
       
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/12/28/%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2025-12-28T06:44:40.000Z" itemprop="datePublished">2025-12-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/12/28/%E7%AC%94%E8%AE%B0/">笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>return 0表示函数正常终止。</p>
-<p>以下内容可运用return 0进行简化</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">13</span>;i++)</span><br><span class="line">    {</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        b[i]=(<span class="number">300</span>+b[i<span class="number">-1</span>]-a[i])%<span class="number">100</span>;</span><br><span class="line">        m+=(<span class="number">300</span>-a[i]+b[i<span class="number">-1</span>])/<span class="number">100</span>*<span class="number">100</span>;</span><br><span class="line">        <span class="keyword">if</span>(b[i]&lt;<span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            cout&lt;&lt;-i;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">    } <span class="keyword">if</span>(b[<span class="number">1</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">2</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">3</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">4</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">5</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">6</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">7</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">8</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">9</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">10</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">11</span>]&gt;=<span class="number">0</span>&amp;&amp;b[<span class="number">12</span>]&gt;=<span class="number">0</span>)</span><br><span class="line">    {</span><br><span class="line">        m=m*<span class="number">1.2</span>+b[<span class="number">12</span>];</span><br><span class="line">        cout&lt;&lt;m;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>简化后为：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">13</span>;i++)</span><br><span class="line">    {</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        b[i]=(<span class="number">300</span>+b[i<span class="number">-1</span>]-a[i])%<span class="number">100</span>;</span><br><span class="line">        m+=(<span class="number">300</span>-a[i]+b[i<span class="number">-1</span>])/<span class="number">100</span>*<span class="number">100</span>;</span><br><span class="line">        <span class="keyword">if</span>(b[i]&lt;<span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            cout&lt;&lt;-i;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">        m=m*<span class="number">1.2</span>+b[<span class="number">12</span>];</span><br><span class="line">        cout&lt;&lt;m;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/12/28/%E7%AC%94%E8%AE%B0/" data-id="cuid4pwkCBMtLEai8DpB5svs5" data-title="笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-顺序程序设计" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/12/26/%E9%A1%BA%E5%BA%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="article-date">
-  <time class="dt-published" datetime="2025-12-26T12:02:56.000Z" itemprop="datePublished">2025-12-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/12/26/%E9%A1%BA%E5%BA%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">顺序程序设计</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="一、整型数据"><a href="#一、整型数据" class="headerlink" title="一、整型数据"></a>一、整型数据</h2><table>
-<thead>
-<tr>
-<th align="center">类型</th>
-<th align="center">字节数</th>
-<th align="center">取值范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">int</td>
-<td align="center">4</td>
-<td align="center">-2<sup>31</sup>~(2<sup>31</sup>-1)</td>
-</tr>
-<tr>
-<td align="center">unsigned int</td>
-<td align="center">4</td>
-<td align="center">0~(2<sup>32</sup>-1)</td>
-</tr>
-<tr>
-<td align="center">short</td>
-<td align="center">2</td>
-<td align="center">-2<sup>15</sup>~(2<sup>15</sup>-1)</td>
-</tr>
-<tr>
-<td align="center">unsigned short</td>
-<td align="center">2</td>
-<td align="center">0~(2<sup>16</sup>-1)</td>
-</tr>
-<tr>
-<td align="center">long</td>
-<td align="center">4</td>
-<td align="center">-2<sup>31</sup>~(2<sup>31</sup>-1)</td>
-</tr>
-<tr>
-<td align="center">unsigned long</td>
-<td align="center">4</td>
-<td align="center">0~(2<sup>32</sup>-1)</td>
-</tr>
-<tr>
-<td align="center">long long</td>
-<td align="center">8</td>
-<td align="center">-2<sup>63</sup>~(2<sup>63</sup>-1)</td>
-</tr>
-<tr>
-<td align="center">unsigned long long</td>
-<td align="center">8</td>
-<td align="center">0~(2<sup>64</sup>-1)</td>
-</tr>
-</tbody></table>
-<h2 id="二、字符数据"><a href="#二、字符数据" class="headerlink" title="二、字符数据"></a>二、字符数据</h2><table>
-<thead>
-<tr>
-<th align="center">类型</th>
-<th align="center">字节数</th>
-<th align="center">取值范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">char</td>
-<td align="center">1</td>
-<td align="center">-2<sup>7</sup>~(2<sup>7</sup>-1)</td>
-</tr>
-<tr>
-<td align="center">unsigned char</td>
-<td align="center">1</td>
-<td align="center">0~(2<sup>8</sup>-1)</td>
-</tr>
-</tbody></table>
-<p><span class="github-emoji"><span>🐾</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f43e.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><strong>Tips</strong>：虽然有符号字符型变量取值为-128– 127，但字符的代码不可能为负值，所以在存储字符时实际只用到0–127这部分，其第一位为0。</p>
-<h2 id="三、浮点型数据"><a href="#三、浮点型数据" class="headerlink" title="三、浮点型数据"></a>三、浮点型数据</h2><table>
-<thead>
-<tr>
-<th align="center">类型</th>
-<th align="center">字节数</th>
-<th align="center">有效数字</th>
-<th align="center">取值范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">float</td>
-<td align="center">4</td>
-<td align="center">6</td>
-<td align="center">0,1.2×10<sup>-38</sup>~3.4×10<sup>38</sup></td>
-</tr>
-<tr>
-<td align="center">double</td>
-<td align="center">8</td>
-<td align="center">15</td>
-<td align="center">0,2.3×10<sup>-308</sup>~1.7×10<sup>308</sup></td>
-</tr>
-<tr>
-<td align="center">long double(Visual C++)</td>
-<td align="center">8</td>
-<td align="center">15</td>
-<td align="center">0,2.3×10<sup>-308</sup>~1.7×10<sup>308</sup></td>
-</tr>
-<tr>
-<td align="center">long double(Turbo C)</td>
-<td align="center">8</td>
-<td align="center">19</td>
-<td align="center">0,3.4×10<sup>-4932</sup>~1.1×10<sup>4932</sup></td>
-</tr>
-</tbody></table>
-<hr>
-<p><span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>在整数末尾加上大写字母L或小写字母l，表示它是长整型（long int），实型常量后加则指定该常量为long double型。</p>
-<p> <span class="github-emoji"><span>💡</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>两个<code>整数相除</code>时，为使结果更精确，可在开头×1.0产生<code>浮点型结果</code>。</p>
-<h1 id="运算符和表达式"><a href="#运算符和表达式" class="headerlink" title="运算符和表达式"></a>运算符和表达式</h1><h2 id="一、C运算符"><a href="#一、C运算符" class="headerlink" title="一、C运算符"></a>一、C运算符</h2><ul>
-<li><p><strong>除法运算</strong>时，两个实数相除的结果是双精度实数，两个整数相除的结果是整数。（若除数与被除数均为正值或负值，则舍去小数部分；若有一个为负值，则取舍不定。大多编译器，如Visual C++，采取“向零取整”。</p>
-</li>
-<li><p><strong>取余运</strong>算要求操作数为整数，结果也为整数。</p>
-</li>
-<li><p><strong>结合性</strong>：算术运算符自左向右，赋值运算符自右向左。</p>
-</li>
-<li><p><strong>强制类型转换运算符</strong>：一般形式为 （类型名）（表达式）或（类型名）a（变量a）</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="type">int</span> a,c;</span><br><span class="line">    <span class="type">double</span> b;</span><br><span class="line">    a=<span class="number">10</span>;b=<span class="number">11.5</span>;</span><br><span class="line">    c=(<span class="type">int</span>)(a+b);</span><br><span class="line">    cout&lt;&lt;c&lt;&lt;(<span class="type">int</span>)b;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p><span class="github-emoji"><span>📝</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>应用：如%运算要求两边均为整型，若x为float型，则x%3不合法，可改为（int）x%3完成运算。</p>
-</li>
-<li><p><strong>三目运算符</strong>：一般形式如下</p>
-<p><code>表达式1？表达式2：表达式3；</code></p>
-<p>如果表达式1结果为真，则执行表达式2，该运算的结果也为表达式2的结果；若为假，则执行表达式3，运算结果则为表达式3的结果。</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a,b,c;</span><br><span class="line">a=<span class="number">7</span>;</span><br><span class="line">b=<span class="number">6</span>;</span><br><span class="line">c=(a&gt;b)?a:b;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>等同于</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (a&gt;b) c=a;</span><br><span class="line"><span class="keyword">else</span> c=b;</span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-<h2 id="二、格式字符"><a href="#二、格式字符" class="headerlink" title="二、格式字符"></a>二、格式字符</h2><ul>
-<li><em>d格式符</em>  用来输出一个有符号的的十进制<code>整数</code>（%d）</li>
-</ul>
-<p>​       若输出long（长整型）数据，则使用%ld；若输出long long（双长整型）数据，则用%lld。</p>
-<p>​      ​ <span class="github-emoji"><span>🌟</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>  %5d %05d %-5d %.5d区别</p>
-<p>​         %5d是将数字按宽度为5，向右对齐的方式输出，若长度不够则用空格补齐左边。</p>
-<p>​         %05d是将数字按宽度为5，向右对齐的方式输出，若长度不够则用“0”补齐左边。</p>
-<p>​         %-5d是将数字按宽度为5，向左对齐的方式输出，若长度不够则用空格补齐右边。</p>
-<p>​         %.5是指输出时至少宽度为5，若长度不够则在前面用“0”补齐。</p>
-<ul>
-<li><p><em>c格式符</em>  用来输出一个<code>字符</code>（%c）</p>
-</li>
-<li><p><em>s格式符</em>  用来输出一个<code>字符串</code>（%s）</p>
-</li>
-<li><p><em>f格式符</em>  用来输出<code>实数</code>（包括单、双精度、长双精度），以小数形式输出。</p>
-<p><span class="github-emoji"><span>🌟</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 用法</p>
-<p>  %f输出实数为单精度浮点数，只能得到6位小数。</p>
-<p>  %lf输出实数则为双精度浮点数。</p>
-<p>  %m.nf：与d格式符类似，m为宽度，n则表示该实数含有多少位小数。</p>
-</li>
-<li><p><em>e格式符</em>   指定数据以<code>指数形式</code>输出实数，若无特定说明，则默认该实数小数部分为6位，指数部分占5列（如e+002）</p>
-</li>
-</ul>
-<h1 id="特殊的输入输出函数"><a href="#特殊的输入输出函数" class="headerlink" title="特殊的输入输出函数"></a>特殊的输入输出函数</h1><h2 id="一、字符的输入输出函数"><a href="#一、字符的输入输出函数" class="headerlink" title="一、字符的输入输出函数"></a>一、字符的输入输出函数</h2><p><strong>输入</strong></p>
-<p>getchar函数，其一般形式如下：</p>
-<p><code>getchar（）</code></p>
-<p><strong>输出</strong></p>
-<p>putchar函数，其一般形式如下：</p>
-<p><code>putchar（c）</code></p>
-<p>参数说明：c可以是字符常量、整型常量、字符变量或整型变量。</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">char</span> a,b,c;</span><br><span class="line">    a=getchar();</span><br><span class="line">    b=getchar();</span><br><span class="line">    c=getchar();</span><br><span class="line">    <span class="built_in">putchar</span>(a);</span><br><span class="line">    <span class="built_in">putchar</span>(b);</span><br><span class="line">    <span class="built_in">putchar</span>(c);</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/12/26/%E9%A1%BA%E5%BA%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" data-id="cuidiPDYfZrvkZIT86YuJ6GWf" data-title="顺序程序设计" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/02/06/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2025/12/28/%E7%AC%94%E8%AE%B0/">笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2025/12/26/%E9%A1%BA%E5%BA%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">顺序程序设计</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">3</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-02-07T05:29:15.179Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By John Doe</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
